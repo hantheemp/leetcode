@@ -1,9 +1,4 @@
-select 
-    p.project_id, 
-    coalesce(round(sum(ifnull(e.experience_years, 0)) / nullif(count(e.experience_years), 0), 2), 0) AS average_years
-from 
-    Project p
-left join 
-    Employee e ON p.employee_id = e.employee_id
-group by
-    p.project_id;
+select project_id, ROUND(AVG(experience_years),2) average_years
+from Project
+join Employee on Project.employee_id = Employee.employee_id
+group by project_id;
