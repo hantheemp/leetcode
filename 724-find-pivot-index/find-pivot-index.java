@@ -2,9 +2,6 @@ class Solution {
     public int pivotIndex(int[] nums) {
 
 		for (int index = 0; index < nums.length; index++) {
-
-			List<Integer> sumLeft = new ArrayList<Integer>();
-			List<Integer> sumRight = new ArrayList<Integer>();
 			int resLeft = 0;
 			int resRight = 0;
 
@@ -23,5 +20,5 @@ class Solution {
 
 		return -1;
 
-	 }
+	}
 }
