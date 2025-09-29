@@ -1,12 +1,9 @@
 /* Write your PL/SQL query statement below */
-SELECT TO_CHAR(trans_date, 'YYYY-MM') month, country, count(*)
-
-trans_count, SUM(CASE WHEN state='approved' THEN 1 ELSE 0 END)
-
-approved_count, SUM(amount)  trans_total_amount, 
-
-SUM(CASE WHEN state='approved' THEN amount ELSE 0 END) as
-
-approved_total_amount FROM Transactions
-
-GROUP BY TO_CHAR(trans_date, 'YYYY-MM'), country
+SELECT  TO_CHAR(trans_date, 'YYYY-MM') AS MONTH,
+        COUNTRY,
+        COUNT(*) TRANS_COUNT,
+        SUM(CASE WHEN UPPER(STATE) = 'APPROVED' THEN 1 ELSE 0 END) AS APPROVED_COUNT,
+        SUM(AMOUNT) TRANS_TOTAL_AMOUNT,
+        SUM(CASE WHEN UPPER(STATE) = 'APPROVED' THEN AMOUNT ELSE 0 END) AS APPROVED_TOTAL_AMOUNT
+FROM TRANSACTIONS
+GROUP BY TO_CHAR(trans_date, 'YYYY-MM'), COUNTRY;
