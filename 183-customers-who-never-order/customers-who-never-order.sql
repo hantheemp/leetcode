@@ -1,0 +1,7 @@
+/* Write your PL/SQL query statement below */
+SELECT NAME CUSTOMERS
+FROM CUSTOMERS C
+WHERE ID NOT IN (
+    SELECT CUSTOMERID
+    FROM ORDERS
+)
