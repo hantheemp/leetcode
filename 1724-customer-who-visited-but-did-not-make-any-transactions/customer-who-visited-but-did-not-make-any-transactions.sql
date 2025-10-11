@@ -1,7 +1,0 @@
-/* Write your PL/SQL query statement below */
-SELECT v.CUSTOMER_ID, COUNT(v.VISIT_ID) "count_no_trans" 
-FROM VISITS v
-LEFT JOIN TRANSACTIONS t 
-ON v.VISIT_ID = t.VISIT_ID  
-WHERE t.TRANSACTION_ID IS NULL 
-GROUP BY v.CUSTOMER_ID; 

@@ -1,9 +1,0 @@
-/* Write your PL/SQL query statement below */
-SELECT EMPLOYEE_ID, DEPARTMENT_ID
-FROM (
-    SELECT EMPLOYEE_ID, DEPARTMENT_ID, PRIMARY_FLAG,
-           ROW_NUMBER() OVER (PARTITION BY EMPLOYEE_ID 
-                             ORDER BY CASE WHEN PRIMARY_FLAG = 'Y' THEN 1 ELSE 2 END) AS rn
-    FROM EMPLOYEE
-) sub
-WHERE rn = 1;
